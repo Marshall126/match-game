@@ -10,7 +10,21 @@ var MatchGame = {};
  */
 
 MatchGame.generateCardValues = function () {
-
+  let cardValues=[];
+  for(let i=1; i<9; i++){
+    cardValues.push(i);
+    cardValues.push(i);
+  }
+  let cardValuesRand = [];
+  while(cardValuesRand.length<16){
+    let index = Math.floor(Math.random() *cardValues.length);
+    cardValuesRand.push(cardValues[index]);
+    cardValues.splice(index, 1);
+    //console.log(index);
+    //console.log(cardValuesRand);
+    //console.log(cardValues);
+  }
+  return cardValuesRand;
 };
 
 /*
