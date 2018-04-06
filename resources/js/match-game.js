@@ -1,3 +1,6 @@
+$(document).ready(function(){
+  MatchGame.renderCards(MatchGame.generateCardValues(), $('#game'));
+})
 var MatchGame = {};
 
 /*
@@ -33,7 +36,22 @@ MatchGame.generateCardValues = function () {
 */
 
 MatchGame.renderCards = function(cardValues, $game) {
+  
+  $($game).html('');
+  let colors = [[25, 85, 65], [55,85,65], [90,85, 65], [160, 85, 65], [220, 85, 65], [265, 85, 65], [310, 85, 65], [360, 85, 65]];
 
+  
+  for (var i=0; i<cardValues.length; i++){
+    let $card = $('<div class="card col-xs-3"></div>');
+    
+      $($card).data= cardValues[i],
+      $card.flipped=false,
+      $card.color=colors[cardValues[i]-1],
+    
+    $($game).append($card);
+    
+    }
+    return $game;
 };
 
 /*
